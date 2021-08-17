@@ -1,0 +1,18 @@
+<div class="container">
+    <div id="st-box" (mouseleave)="showDropDown = false" class="select">
+        <button class="drop-toggle btn flat" (click)="showDropDown=!showDropDown">
+            <span>Select</span>
+            <i class="fa fa-angle-down"></i>
+        </button>
+        <div class="drop-show" *ngIf="showDropDown">
+            <label *ngFor="let a of list">
+                <input type="checkbox"
+                [checked]="a.checked"
+                    (change)="getSelectedValue(a)" />
+                <span>{{a.key}}</span>
+            </label>
+        </div>
+    </div>
+    <div class="search-box" id="nd-box"><input placeholder="Search" #input></div>
+    <div class="search-btn" id="rd-box"><button>Search</button></div>
+</div>
